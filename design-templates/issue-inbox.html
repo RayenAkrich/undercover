@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-container":"#00285d","surface-container-lowest":"#0a0e19","secondary-fixed":"#ffdad7","on-primary-fixed-variant":"#004395","p3":"#475569","surface":"#0f131e","on-surface":"#dfe2f2","cream-dim":"#E5DEC9","on-primary":"#002e6a","surface-variant":"#303441","surface-container-low":"#171b27","tertiary":"#ffb95f","background":"#0f131e","on-tertiary-container":"#3e2400","on-error-container":"#ffdad6","ink-800":"#131C38","on-secondary-fixed":"#410004","primary-fixed":"#d8e2ff","surface-container":"#1b1f2b","dashboard-accent":"#2563EB","secondary":"#ffb3ad","on-secondary-fixed-variant":"#930013","on-secondary":"#68000a","surface-container-highest":"#303441","tertiary-container":"#ca8100","on-background":"#dfe2f2","outline":"#8c909f","secondary-container":"#a40217","cream":"#F4EFE4","p0":"#B91C1C","on-tertiary-fixed-variant":"#653e00","primary":"#adc6ff","surface-tint":"#adc6ff","surface-bright":"#353946","on-secondary-container":"#ffaea8","inverse-surface":"#dfe2f2","p1":"#EA580C","text-light":"#F8FAFC","primary-container":"#4d8eff","p2":"#CA8A04","text-dim":"#94A3B8","error":"#ffb4ab","ink-950":"#070B16","tertiary-fixed-dim":"#ffb95f","primary-fixed-dim":"#adc6ff","on-surface-variant":"#c2c6d6","ink-900":"#0B1226","inverse-primary":"#005ac2","surface-container-high":"#262a36","on-error":"#690005","error-container":"#93000a","on-primary-fixed":"#001a42","on-tertiary":"#472a00","secondary-fixed-dim":"#ffb3ad","outline-variant":"#424754","on-tertiary-fixed":"#2a1700","surface-dim":"#0f131e","inverse-on-surface":"#2c303c","tertiary-fixed":"#ffddb8"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter-mobile":"1rem","margin":"2rem","space-sm":"0.5rem","space-xl":"2.5rem","space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1.5rem","margin-mobile":"1.25rem","space-md":"1rem"},fontFamily:{"display-hero-mobile":["Space Grotesk"],"headline-lg-mobile":["Space Grotesk"],"mono-lg":["JetBrains Mono"],"body-md":["Inter"],"body-lg":["Inter"],"body-sm":["Inter"],"headline-sm":["Space Grotesk"],"display-hero":["Space Grotesk"],"mono-sm":["JetBrains Mono"],"mono-md":["JetBrains Mono"],"headline-md":["Space Grotesk"],"headline-lg":["Space Grotesk"],"stamp-badge":["JetBrains Mono"]},fontSize:{"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"mono-lg":["16px",{"lineHeight":"24px","fontWeight":"500"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"mono-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"600"}],"mono-md":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"600"}],"stamp-badge":["14px",{"lineHeight":"16px","letterSpacing":"0.15em","fontWeight":"700"}]}}}}</script></head><body class="bg-ink-950 font-body-md text-on-surface antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 bg-ink-950/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.35)]"><div class="h-16 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded bg-ink-900 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">fingerprint</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm uppercase tracking-tight text-on-surface leading-none">Undercover</span><span class="font-mono-sm text-mono-sm uppercase text-text-dim tracking-wider">Investigative APM</span></div></div><div class="h-6 w-px bg-surface-variant hidden md:block"></div><nav class="flex items-center gap-space-xs" data-active-classes="bg-ink-800 text-primary shadow-[inset_0_-2px_0_0_#2563EB] font-mono-md"><a aria-current="page" class="px-space-md py-space-sm rounded transition-colors bg-ink-800 text-primary shadow-[inset_0_-2px_0_0_#2563EB] font-mono-md" data-path="issue-inbox" href="#">Issue Inbox</a><a class="px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-ink-900 hover:text-on-surface transition-colors" data-path="runs" href="#">Runs</a><a class="px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-ink-900 hover:text-on-surface transition-colors" data-path="benchmark" href="#">Benchmark</a><a class="px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-ink-900 hover:text-on-surface transition-colors" data-path="import" href="#">Import</a></nav></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-sm px-space-sm py-space-xs rounded bg-ink-900"><div class="flex items-center gap-space-xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span><span class="font-mono-sm text-mono-sm text-on-surface font-semibold">LIVE 42 spans/sec</span></div><div class="h-3 w-px bg-surface-variant"></div><span class="font-mono-sm text-mono-sm text-text-dim">prod-agent-checkout</span></div><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-ink-800 hover:bg-ink-900 cursor-pointer transition-colors text-on-surface"><span class="material-symbols-outlined text-[18px] text-text-dim">domain</span><span class="font-body-sm text-body-sm font-medium">Acme Intelligence</span><span class="material-symbols-outlined text-[16px] text-text-dim">expand_more</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-ink-950 min-h-screen"><div class="flex flex-col w-full">
+<!-- Subtle Tactical Radial Glow & Background Grid Header Area -->
+<section class="relative w-full overflow-hidden pb-space-xl">
+<!-- Ambient Tactical Glow -->
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[340px] bg-dashboard-accent/15 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(37,99,235,0.12),transparent_70%)] pointer-events-none"></div>
+<div class="relative max-w-7xl mx-auto px-margin-mobile md:px-margin pt-space-lg flex flex-col gap-space-lg">
+<!-- Top Dossier Breadcrumb & Sync Status -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm text-text-dim font-mono-sm text-mono-sm">
+<span class="inline-flex items-center gap-space-xs text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">folder_special</span>
+<span>SYSTEM_INVESTIGATION</span>
+</span>
+<span>/</span>
+<span class="text-on-surface">CLUSTER_INBOX_ACTIVE</span>
+<span class="px-1.5 py-0.5 rounded bg-ink-800 text-text-dim text-[10px]">CASE_COUNT: 05</span>
+</div>
+<div class="flex items-center gap-space-xs font-mono-sm text-mono-sm text-text-dim">
+<span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>AUTONOMOUS_DETECTION_ENGINE: ONLINE</span>
+</div>
+</div>
+<!-- Main Page Header -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-sm py-0.5 rounded bg-primary-container/20 text-primary font-mono-sm text-mono-sm uppercase tracking-wider">
+              Cluster Analysis
+            </span>
+<span class="text-text-dim font-mono-sm text-mono-sm">REF: INV-2024-Q4</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-text-light tracking-tight">
+            Issue Inbox
+          </h1>
+<p class="font-body-md text-body-md text-text-dim max-w-2xl leading-relaxed">
+            Clustered behavioral anomalies and silent logic breaches across active autonomous runs. Forensic analysis flags invariants failing without HTTP error signatures.
+          </p>
+</div>
+<!-- Secondary Action: Export -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="px-space-md py-space-sm rounded bg-ink-800 hover:bg-ink-900 text-text-light font-body-sm text-body-sm font-medium shadow-md transition-all flex items-center gap-space-xs" id="exportDossierBtn">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+<span>Export Dossier</span>
+</button>
+<button class="px-space-md py-space-sm rounded bg-dashboard-accent hover:bg-on-primary-container text-text-light font-body-sm text-body-sm font-medium shadow-md transition-all flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">rule_folder</span>
+<span>Trigger Rescan</span>
+</button>
+</div>
+</div>
+<!-- Quick Action Controls & Filters Bar -->
+<div class="w-full bg-ink-900 rounded-xl p-space-sm shadow-xl flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-sm">
+<!-- Priority Filter Tabs -->
+<div class="flex items-center p-1 rounded-lg bg-ink-950 self-start md:self-auto" id="priorityFilters">
+<button class="filter-tab px-space-md py-1.5 rounded font-mono-md text-mono-md font-semibold text-text-light bg-ink-800 transition-colors" data-filter="all">
+            All (5)
+          </button>
+<button class="filter-tab px-space-md py-1.5 rounded font-mono-md text-mono-md text-text-dim hover:text-text-light transition-colors flex items-center gap-1.5" data-filter="p0">
+<span class="w-2 h-2 rounded-full bg-p0"></span>
+<span>P0 (2)</span>
+</button>
+<button class="filter-tab px-space-md py-1.5 rounded font-mono-md text-mono-md text-text-dim hover:text-text-light transition-colors flex items-center gap-1.5" data-filter="p1">
+<span class="w-2 h-2 rounded-full bg-p1"></span>
+<span>P1 (2)</span>
+</button>
+<button class="filter-tab px-space-md py-1.5 rounded font-mono-md text-mono-md text-text-dim hover:text-text-light transition-colors flex items-center gap-1.5" data-filter="p2">
+<span class="w-2 h-2 rounded-full bg-p2"></span>
+<span>P2 (1)</span>
+</button>
+</div>
+<!-- Search and Timeframe -->
+<div class="flex items-center gap-space-sm flex-1 md:max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-text-dim pointer-events-none">search</span>
+<input class="w-full pl-9 pr-space-md py-1.5 bg-ink-950 rounded-lg text-text-light placeholder:text-text-dim text-body-sm font-body-sm focus:outline-none focus:ring-1 focus:ring-dashboard-accent transition-all" id="clusterSearch" placeholder="Filter by cluster name, tool call, or invariant..." type="text"/>
+</div>
+<!-- Time Range Dropdown Selector -->
+<div class="relative shrink-0">
+<button class="px-space-md py-1.5 bg-ink-950 hover:bg-ink-800 rounded-lg text-text-light font-mono-md text-mono-md flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[16px] text-text-dim">schedule</span>
+<span>Last 24 hours</span>
+<span class="material-symbols-outlined text-[16px] text-text-dim">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Metrics Strip Banner -->
+<div class="w-full bg-ink-800 rounded-xl p-space-md shadow-xl grid grid-cols-2 lg:grid-cols-4 gap-space-md relative overflow-hidden">
+<div class="absolute -right-10 -bottom-10 w-44 h-44 bg-dashboard-accent/5 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Metric 1 -->
+<div class="flex flex-col gap-1 p-space-sm bg-ink-900/60 rounded-lg">
+<div class="flex items-center justify-between text-text-dim">
+<span class="font-mono-sm text-mono-sm uppercase tracking-wider">Ingested Runs</span>
+<span class="material-symbols-outlined text-[18px] text-primary">data_thresholding</span>
+</div>
+<div class="font-display-hero text-headline-lg font-bold text-text-light tracking-tight">
+            300
+          </div>
+<div class="font-mono-sm text-mono-sm text-text-dim flex items-center gap-1">
+<span>Ingested OTEL Traces</span>
+<span class="text-emerald-400">100% cap</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="flex flex-col gap-1 p-space-sm bg-ink-900/60 rounded-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 w-16 h-16 bg-p0/10 rounded-bl-3xl pointer-events-none"></div>
+<div class="flex items-center justify-between text-text-dim">
+<span class="font-mono-sm text-mono-sm uppercase tracking-wider">Breached Traces</span>
+<span class="material-symbols-outlined text-[18px] text-p0">warning</span>
+</div>
+<div class="font-display-hero text-headline-lg font-bold text-error tracking-tight flex items-baseline gap-space-xs">
+<span>168</span>
+<span class="text-mono-sm font-mono-sm text-p0 uppercase tracking-widest font-semibold">Flagged</span>
+</div>
+<div class="font-mono-sm text-mono-sm text-text-dim flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-p0"></span>
+<span>Silent Status 200 Anomalies</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="flex flex-col gap-1 p-space-sm bg-ink-900/60 rounded-lg">
+<div class="flex items-center justify-between text-text-dim">
+<span class="font-mono-sm text-mono-sm uppercase tracking-wider">Distinct Signatures</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">bubble_chart</span>
+</div>
+<div class="font-display-hero text-headline-lg font-bold text-text-light tracking-tight">
+            5
+          </div>
+<div class="font-mono-sm text-mono-sm text-text-dim">
+            Deduplicated Case Clusters
+          </div>
+</div>
+<!-- Metric 4 -->
+<div class="flex flex-col gap-1 p-space-sm bg-ink-900/60 rounded-lg">
+<div class="flex items-center justify-between text-text-dim">
+<span class="font-mono-sm text-mono-sm uppercase tracking-wider">Algorithmic Precision</span>
+<span class="material-symbols-outlined text-[18px] text-dashboard-accent">verified</span>
+</div>
+<div class="font-display-hero text-headline-lg font-bold text-primary tracking-tight">
+            92.4%
+          </div>
+<div class="font-mono-sm text-mono-sm text-text-dim">
+            Ground-truth Bayesian Score
+          </div>
+</div>
+</div>
+<!-- Section Title & Status Strip -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">manage_search</span>
+<h2 class="font-headline-sm text-headline-sm text-text-light">
+            Identified Cluster Dossiers
+          </h2>
+<span class="px-2 py-0.5 rounded-full bg-ink-800 text-text-dim font-mono-sm text-mono-sm">Strict Rank: Severity</span>
+</div>
+<div class="hidden sm:flex items-center gap-space-md text-text-dim font-mono-sm text-mono-sm">
+<span>SORTED BY INVARIANT SEVERITY</span>
+<span>•</span>
+<span class="text-on-surface">AUTO-HEURISTIC TRIAGE</span>
+</div>
+</div>
+<!-- 5 Recurring Issue Cards Container -->
+<div class="flex flex-col gap-space-md" id="issuesList">
+<!-- ISSUE 1: Duplicate refunds after retry (P0) -->
+<article class="issue-card bg-ink-800 rounded-xl p-space-lg shadow-xl hover:shadow-2xl transition-all duration-200 relative overflow-hidden flex flex-col gap-space-md group" data-priority="p0">
+<!-- Ambient lateral highlight -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-p0"></div>
+<!-- Top Meta Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="px-space-sm py-1 rounded bg-p0 text-text-light font-mono-sm text-mono-sm font-bold uppercase tracking-wider">
+                P0 CRITICAL
+              </span>
+<span class="font-mono-sm text-mono-sm text-text-dim font-semibold">CASE-042</span>
+<span class="text-text-dim">•</span>
+<span class="font-mono-sm text-mono-sm text-on-surface">32 occurrences · 28 sessions · Confidence 97%</span>
+</div>
+<!-- Impact Callout -->
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-error-container/40 text-secondary font-mono-sm text-mono-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">currency_exchange</span>
+<span>$3,200 exposure</span>
+</div>
+</div>
+<!-- Title & Invariant Preview -->
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-md text-headline-md text-text-light group-hover:text-primary transition-colors">
+              Duplicate refunds after retry
+            </h3>
+<!-- Invariant Breach Code Block -->
+<div class="mt-space-xs p-space-md rounded-lg bg-ink-950 flex flex-col gap-1.5 font-mono-md text-mono-md">
+<div class="flex items-center gap-space-xs text-text-dim text-[11px] uppercase tracking-wider">
+<span class="material-symbols-outlined text-p0 text-[14px]">gavel</span>
+<span>INVARIANT BREACH: IDEMPOTENCY_GUARANTEE_VIOLATED</span>
+</div>
+<p class="text-error font-mono-md text-mono-md leading-relaxed">
+                Idempotency breach: tool 'refund_charge' executed 2x within 400ms without unique idempotency key.
+              </p>
+<div class="text-text-dim text-[12px] flex flex-wrap items-center gap-space-md pt-1">
+<span>Target: <code class="text-on-surface">payment_gateway.refund</code></span>
+<span>Agent: <code class="text-on-surface">customer-agent-v3</code></span>
+<span>Trigger: <code class="text-p1">SocketTimeoutException -&gt; retry</code></span>
+</div>
+</div>
+</div>
+<!-- Bottom Metric & Action Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-lg text-text-dim font-mono-sm text-mono-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>First: <strong class="text-on-surface font-normal">Oct 24, 04:12 UTC</strong></span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>Last: <strong class="text-error font-medium">3 mins ago</strong></span>
+</div>
+<!-- Confidence Progress Track -->
+<div class="hidden md:flex items-center gap-2">
+<span>Confidence:</span>
+<div class="w-24 h-2 rounded-full bg-ink-950 overflow-hidden p-0.5">
+<div class="h-full bg-p0 rounded-full" style="width: 97%;"></div>
+</div>
+<span class="text-text-light font-semibold">97%</span>
+</div>
+</div>
+<!-- Inspect Link -->
+<a class="px-space-md py-space-xs rounded bg-dashboard-accent/10 hover:bg-dashboard-accent text-primary hover:text-text-light font-mono-md text-mono-md font-semibold transition-all flex items-center gap-space-xs" href="#">
+<span>Inspect evidence</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- ISSUE 2: False success after refund rejection (P0) -->
+<article class="issue-card bg-ink-800 rounded-xl p-space-lg shadow-xl hover:shadow-2xl transition-all duration-200 relative overflow-hidden flex flex-col gap-space-md group" data-priority="p0">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-p0"></div>
+<!-- Top Meta Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="px-space-sm py-1 rounded bg-p0 text-text-light font-mono-sm text-mono-sm font-bold uppercase tracking-wider">
+                P0 CRITICAL
+              </span>
+<span class="font-mono-sm text-mono-sm text-text-dim font-semibold">CASE-043</span>
+<span class="text-text-dim">•</span>
+<span class="font-mono-sm text-mono-sm text-on-surface">19 occurrences · 19 sessions · Confidence 94%</span>
+</div>
+<!-- Impact Callout -->
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-p1/20 text-p1 font-mono-sm text-mono-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">sentiment_very_dissatisfied</span>
+<span>High churn risk</span>
+</div>
+</div>
+<!-- Title & Invariant Preview -->
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-md text-headline-md text-text-light group-hover:text-primary transition-colors">
+              False success after refund rejection
+            </h3>
+<div class="mt-space-xs p-space-md rounded-lg bg-ink-950 flex flex-col gap-1.5 font-mono-md text-mono-md">
+<div class="flex items-center gap-space-xs text-text-dim text-[11px] uppercase tracking-wider">
+<span class="material-symbols-outlined text-p0 text-[14px]">psychology</span>
+<span>INVARIANT BREACH: HALLUCINATED_STATE_AFFIRMATION</span>
+</div>
+<p class="text-error font-mono-md text-mono-md leading-relaxed">
+                Hallucinated confirmation: Stripe API returned HTTP 402 Card Declined, agent emitted 'Your refund has processed successfully'.
+              </p>
+<div class="text-text-dim text-[12px] flex flex-wrap items-center gap-space-md pt-1">
+<span>Payload Code: <code class="text-p0">card_declined (insufficient_funds)</code></span>
+<span>Agent Output: <code class="text-text-light">"Refund issued to original card."</code></span>
+</div>
+</div>
+</div>
+<!-- Bottom Metric & Action Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-lg text-text-dim font-mono-sm text-mono-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>First: <strong class="text-on-surface font-normal">Oct 23, 18:40 UTC</strong></span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>Last: <strong class="text-p0 font-medium">14 mins ago</strong></span>
+</div>
+<div class="hidden md:flex items-center gap-2">
+<span>Confidence:</span>
+<div class="w-24 h-2 rounded-full bg-ink-950 overflow-hidden p-0.5">
+<div class="h-full bg-p0 rounded-full" style="width: 94%;"></div>
+</div>
+<span class="text-text-light font-semibold">94%</span>
+</div>
+</div>
+<a class="px-space-md py-space-xs rounded bg-dashboard-accent/10 hover:bg-dashboard-accent text-primary hover:text-text-light font-mono-md text-mono-md font-semibold transition-all flex items-center gap-space-xs" href="#">
+<span>Inspect evidence</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- ISSUE 3: Wrong refund amounts (P1) -->
+<article class="issue-card bg-ink-800 rounded-xl p-space-lg shadow-xl hover:shadow-2xl transition-all duration-200 relative overflow-hidden flex flex-col gap-space-md group" data-priority="p1">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-p1"></div>
+<!-- Top Meta Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="px-space-sm py-1 rounded bg-p1 text-text-light font-mono-sm text-mono-sm font-bold uppercase tracking-wider">
+                P1 ELEVATED
+              </span>
+<span class="font-mono-sm text-mono-sm text-text-dim font-semibold">CASE-044</span>
+<span class="text-text-dim">•</span>
+<span class="font-mono-sm text-mono-sm text-on-surface">45 occurrences · 42 sessions · Confidence 89%</span>
+</div>
+<!-- Impact Callout -->
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-p2/20 text-tertiary font-mono-sm text-mono-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">trending_up</span>
+<span>$840 aggregate delta</span>
+</div>
+</div>
+<!-- Title & Invariant Preview -->
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-md text-headline-md text-text-light group-hover:text-primary transition-colors">
+              Wrong refund amounts
+            </h3>
+<div class="mt-space-xs p-space-md rounded-lg bg-ink-950 flex flex-col gap-1.5 font-mono-md text-mono-md">
+<div class="flex items-center gap-space-xs text-text-dim text-[11px] uppercase tracking-wider">
+<span class="material-symbols-outlined text-p1 text-[14px]">tune</span>
+<span>INVARIANT BREACH: ARGUMENT_NUMERICAL_DRIFT</span>
+</div>
+<p class="text-tertiary font-mono-md text-mono-md leading-relaxed">
+                Parameter drift: User prompt specified '$10 partial credit', payload executed 'amount=100.00'.
+              </p>
+<div class="text-text-dim text-[12px] flex flex-wrap items-center gap-space-md pt-1">
+<span>Prompt Extraction: <code class="text-on-surface">subtotal_dispute_amount: 10.00</code></span>
+<span>Tool Execution: <code class="text-p1">stripe.refunds.create(amount=10000)</code></span>
+</div>
+</div>
+</div>
+<!-- Bottom Metric & Action Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-lg text-text-dim font-mono-sm text-mono-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>First: <strong class="text-on-surface font-normal">Oct 21, 09:15 UTC</strong></span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>Last: <strong class="text-on-surface font-medium">32 mins ago</strong></span>
+</div>
+<div class="hidden md:flex items-center gap-2">
+<span>Confidence:</span>
+<div class="w-24 h-2 rounded-full bg-ink-950 overflow-hidden p-0.5">
+<div class="h-full bg-p1 rounded-full" style="width: 89%;"></div>
+</div>
+<span class="text-text-light font-semibold">89%</span>
+</div>
+</div>
+<a class="px-space-md py-space-xs rounded bg-dashboard-accent/10 hover:bg-dashboard-accent text-primary hover:text-text-light font-mono-md text-mono-md font-semibold transition-all flex items-center gap-space-xs" href="#">
+<span>Inspect evidence</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- ISSUE 4: Wrong tool: cancel instead of address change (P1) -->
+<article class="issue-card bg-ink-800 rounded-xl p-space-lg shadow-xl hover:shadow-2xl transition-all duration-200 relative overflow-hidden flex flex-col gap-space-md group" data-priority="p1">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-p1"></div>
+<!-- Top Meta Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="px-space-sm py-1 rounded bg-p1 text-text-light font-mono-sm text-mono-sm font-bold uppercase tracking-wider">
+                P1 ELEVATED
+              </span>
+<span class="font-mono-sm text-mono-sm text-text-dim font-semibold">CASE-045</span>
+<span class="text-text-dim">•</span>
+<span class="font-mono-sm text-mono-sm text-on-surface">14 occurrences · 14 sessions · Confidence 91%</span>
+</div>
+<!-- Impact Callout -->
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container/40 text-secondary font-mono-sm text-mono-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">dangerous</span>
+<span>Destructive action drift</span>
+</div>
+</div>
+<!-- Title & Invariant Preview -->
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-md text-headline-md text-text-light group-hover:text-primary transition-colors">
+              Wrong tool: cancel instead of address change
+            </h3>
+<div class="mt-space-xs p-space-md rounded-lg bg-ink-950 flex flex-col gap-1.5 font-mono-md text-mono-md">
+<div class="flex items-center gap-space-xs text-text-dim text-[11px] uppercase tracking-wider">
+<span class="material-symbols-outlined text-p1 text-[14px]">alt_route</span>
+<span>INVARIANT BREACH: IRREVERSIBLE_TOOL_COLLISION</span>
+</div>
+<p class="text-secondary font-mono-md text-mono-md leading-relaxed">
+                Intent classification divergence: User stated 'Update Apt 4B', agent called 'order_service.cancel_entire_order'.
+              </p>
+<div class="text-text-dim text-[12px] flex flex-wrap items-center gap-space-md pt-1">
+<span>Expected Tool: <code class="text-emerald-400">order.update_shipping_address</code></span>
+<span>Actual Tool: <code class="text-error">order.cancel_entire_order</code></span>
+</div>
+</div>
+</div>
+<!-- Bottom Metric & Action Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-lg text-text-dim font-mono-sm text-mono-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>First: <strong class="text-on-surface font-normal">Oct 22, 11:02 UTC</strong></span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>Last: <strong class="text-on-surface font-medium">1 hr ago</strong></span>
+</div>
+<div class="hidden md:flex items-center gap-2">
+<span>Confidence:</span>
+<div class="w-24 h-2 rounded-full bg-ink-950 overflow-hidden p-0.5">
+<div class="h-full bg-p1 rounded-full" style="width: 91%;"></div>
+</div>
+<span class="text-text-light font-semibold">91%</span>
+</div>
+</div>
+<a class="px-space-md py-space-xs rounded bg-dashboard-accent/10 hover:bg-dashboard-accent text-primary hover:text-text-light font-mono-md text-mono-md font-semibold transition-all flex items-center gap-space-xs" href="#">
+<span>Inspect evidence</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- ISSUE 5: Retry loop on order lookup (P2) -->
+<article class="issue-card bg-ink-800 rounded-xl p-space-lg shadow-xl hover:shadow-2xl transition-all duration-200 relative overflow-hidden flex flex-col gap-space-md group" data-priority="p2">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-p2"></div>
+<!-- Top Meta Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="px-space-sm py-1 rounded bg-p2 text-ink-950 font-mono-sm text-mono-sm font-bold uppercase tracking-wider">
+                P2 MODERATE
+              </span>
+<span class="font-mono-sm text-mono-sm text-text-dim font-semibold">CASE-046</span>
+<span class="text-text-dim">•</span>
+<span class="font-mono-sm text-mono-sm text-on-surface">58 occurrences · 51 sessions · Confidence 83%</span>
+</div>
+<!-- Impact Callout -->
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-ink-950 text-tertiary font-mono-sm text-mono-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">hourglass_top</span>
+<span>14.2k wasted tokens · Latency +45s</span>
+</div>
+</div>
+<!-- Title & Invariant Preview -->
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-md text-headline-md text-text-light group-hover:text-primary transition-colors">
+              Retry loop on order lookup
+            </h3>
+<div class="mt-space-xs p-space-md rounded-lg bg-ink-950 flex flex-col gap-1.5 font-mono-md text-mono-md">
+<div class="flex items-center gap-space-xs text-text-dim text-[11px] uppercase tracking-wider">
+<span class="material-symbols-outlined text-p2 text-[14px]">sync_problem</span>
+<span>INVARIANT BREACH: CYCLIC_STATE_DECAY</span>
+</div>
+<p class="text-on-surface-variant font-mono-md text-mono-md leading-relaxed">
+                Deadlock iteration: 'search_kb(customer_status_vip)' called 9x consecutively with null diff.
+              </p>
+<div class="text-text-dim text-[12px] flex flex-wrap items-center gap-space-md pt-1">
+<span>Loop Invariant: <code class="text-p2">zero_state_entropy_delta</code></span>
+<span>Token Burn: <code class="text-text-light">1,580 tokens/cycle</code></span>
+</div>
+</div>
+</div>
+<!-- Bottom Metric & Action Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-lg text-text-dim font-mono-sm text-mono-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>First: <strong class="text-on-surface font-normal">Oct 20, 15:30 UTC</strong></span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>Last: <strong class="text-on-surface font-medium">2 hrs ago</strong></span>
+</div>
+<div class="hidden md:flex items-center gap-2">
+<span>Confidence:</span>
+<div class="w-24 h-2 rounded-full bg-ink-950 overflow-hidden p-0.5">
+<div class="h-full bg-p2 rounded-full" style="width: 83%;"></div>
+</div>
+<span class="text-text-light font-semibold">83%</span>
+</div>
+</div>
+<a class="px-space-md py-space-xs rounded bg-dashboard-accent/10 hover:bg-dashboard-accent text-primary hover:text-text-light font-mono-md text-mono-md font-semibold transition-all flex items-center gap-space-xs" href="#">
+<span>Inspect evidence</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</article>
+</div>
+<!-- Tactical Physical Evidence File Interruption (Cream Dossier Section) -->
+<section class="mt-space-xl mb-space-lg bg-cream text-ink-950 rounded-xl p-space-lg md:p-space-xl shadow-2xl relative overflow-hidden">
+<!-- Pushpin Anchor Graphic -->
+<div class="absolute -top-3 left-8 w-6 h-6 rounded-full bg-p0 border-2 border-cream-dim shadow-md flex items-center justify-center pointer-events-none">
+<div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+</div>
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="flex items-center gap-space-sm font-mono-sm text-mono-sm uppercase tracking-widest text-ink-800">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>FORENSIC REPLAY SYNTHESIS</span>
+<span>•</span>
+<span>DOSSIER FILE #881</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-ink-950 font-bold tracking-tight">
+              Export Evidence Package to Automated Test Harness
+            </h3>
+<p class="font-body-md text-body-md text-ink-800">
+              Transform active silent failures into continuous regression invariants. Generates deterministic pytest suites and LangSmith verification cases directly from trace diffs.
+            </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-md shrink-0">
+<button class="px-space-md py-space-sm rounded bg-ink-950 hover:bg-ink-900 text-cream font-mono-md text-mono-md font-semibold shadow-lg transition-colors flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">code</span>
+<span>Generate PyTest Stubs</span>
+</button>
+<button class="px-space-md py-space-sm rounded bg-ink-800 hover:bg-ink-900 text-cream font-mono-md text-mono-md transition-colors flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">share</span>
+<span>Share Dossier</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</section>
+<!-- Interactive Client Behavior for Filter & Search -->
+<script>
+    (function initIssueInbox() {
+      const searchInput = document.getElementById('clusterSearch');
+      const filterTabs = document.querySelectorAll('#priorityFilters .filter-tab');
+      const issueCards = document.querySelectorAll('#issuesList .issue-card');
+
+      let currentFilter = 'all';
+      let currentQuery = '';
+
+      function applyFilters() {
+        issueCards.forEach(card => {
+          const cardPriority = card.getAttribute('data-priority');
+          const cardText = card.innerText.toLowerCase();
+
+          const matchesPriority = (currentFilter === 'all') || (cardPriority === currentFilter);
+          const matchesSearch = !currentQuery || cardText.includes(currentQuery);
+
+          if (matchesPriority && matchesSearch) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      }
+
+      // Filter Tabs Event
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          filterTabs.forEach(t => {
+            t.classList.remove('bg-ink-800', 'text-text-light');
+            t.classList.add('text-text-dim');
+          });
+
+          tab.classList.add('bg-ink-800', 'text-text-light');
+          tab.classList.remove('text-text-dim');
+
+          currentFilter = tab.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      // Search Event
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentQuery = e.target.value.toLowerCase().trim();
+          applyFilters();
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-ink-900/80 backdrop-blur-md shadow-[0_-1px_6px_rgba(0,0,0,0.25)]"><div class="h-12 w-full px-margin flex items-center justify-between text-on-surface-variant font-mono-sm text-mono-sm"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span><span class="text-on-surface">Telemetry Ingestion Nominal</span></div><div class="hidden md:flex items-center gap-space-xs text-text-dim"><span class="material-symbols-outlined text-[14px]">sync</span><span>Cluster Sync: node-us-east-1a (0.12ms)</span></div></div><div class="flex items-center gap-space-md"><span class="text-text-dim hidden sm:inline">CASE-INDEX ENGINE v2.4.9</span><a class="text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-space-xs" href="#"><span class="material-symbols-outlined text-[14px]">terminal</span><span>Agent Tracing Docs</span></a><a class="text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-space-xs" href="#"><span class="material-symbols-outlined text-[14px]">help</span><span>Forensics Guide</span></a></div></div></footer></body></html>

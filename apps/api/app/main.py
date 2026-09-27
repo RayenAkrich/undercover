@@ -9,6 +9,8 @@ from app.api.datasets import router as datasets_router
 from app.api.sessions import router as sessions_router
 from app.api import failures
 from app.api.clusters import router as clusters_router
+from app.api.runs import router as runs_router
+from app.core.supabase import ping
 
 app = FastAPI(title="Undercover API", version="0.1.0")
 
@@ -27,16 +29,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Routers (all under the /api/v1 base — doc/08).
-# Slice 1: datasets + sessions routers carry their own /api/v1/... prefix.
-app.include_router(datasets_router)
-app.include_router(sessions_router)
-# Slice 2 (Deliverable 3): failures endpoints.
-app.include_router(failures.router, prefix="/api/v1")
-# Slice 3: clusters endpoints.
-app.include_router(clusters_router, prefix="/api/v1")
+# Routers. Slices 1-3 mount under /api/v1; slice 4's runs router carries its own
+# /analysis-runs prefix (see NOTE in the merge summary about aligning the API base).
+app.include_router(datasets_router)  # /api/v1/datasets
+app.include_router(sessions_router)  # /api/v1/sessions
+app.include_router(failures.router, prefix="/api/v1")  # Slice 2 failures
+app.include_router(clusters_router, prefix="/api/v1")  # Slice 3 clusters
+app.include_router(runs_router)  # Slice 4 /analysis-runs
 
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "database": "not-configured", "version": "0.1.0"}
+    try:
+        ping()
+        database = "ok"
+    except Exception:
+        database = "degraded"
+    return {"status": "ok", "database": database, "version": "0.1.0"}

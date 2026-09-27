@@ -1,8 +1,21 @@
-export default function Inbox() {
-  return (
-    <main>
-      <h1>Undercover</h1>
-      <p>Issue Inbox — see doc/01_APP_SPECIFICATION.md §16.</p>
-    </main>
-  );
+import type { Metadata } from "next";
+import InboxView from "@/components/inbox/InboxView";
+import { getClusters, getSummary } from "@/lib/api";
+
+export const metadata: Metadata = {
+  title: "Issue Inbox — Undercover",
+  description: "Recurring behavioral failure clusters, ranked by priority.",
+};
+
+export default async function InboxPage({
+  params,
+}: {
+  params: { runId: string };
+}) {
+  void params;
+  const [clusters, summary] = await Promise.all([
+    getClusters("inbox"),
+    getSummary("inbox"),
+  ]);
+  return <InboxView clusters={clusters} summary={summary} />;
 }
