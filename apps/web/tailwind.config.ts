@@ -85,6 +85,7 @@ const config: Config = {
         "space-sm": "0.5rem",
       },
       fontFamily: {
+        mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"],
         "mono-lg": ["JetBrains Mono"],
         "headline-lg": ["Space Grotesk"],
         "body-md": ["Inter"],
