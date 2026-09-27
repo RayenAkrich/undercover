@@ -135,15 +135,19 @@ class NormalizedSession(BaseModel):
             add(event_type=etype, content=msg.get("content"))
 
         for call in raw.get("tool_calls", []) or []:
-            name = call.get("name") or call.get("tool")
+            # Match Slice 1's ingestion mapping so this stub agrees with the real
+            # pipeline: tool_name|name, and status pulled from a nested result dict.
+            name = call.get("tool_name") or call.get("name") or call.get("tool")
             args = call.get("arguments") or call.get("args") or {}
             add(event_type=EventType.TOOL_CALL, tool_name=name, payload={"arguments": args})
-            if "result" in call or "status" in call:
+            result = call.get("result")
+            if result is not None or call.get("status") is not None:
+                status = result.get("status") if isinstance(result, dict) else call.get("status")
                 add(
                     event_type=EventType.TOOL_RESULT,
                     tool_name=name,
-                    payload={"result": call.get("result", {})},
-                    status=call.get("status"),
+                    payload={"result": result if result is not None else {}},
+                    status=status,
                 )
 
         if raw.get("final_answer") is not None:

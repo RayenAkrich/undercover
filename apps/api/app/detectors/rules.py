@@ -88,9 +88,11 @@ _AMOUNT_PATTERNS = (
         re.IGNORECASE,
     ),
 )
+# Order IDs must contain a digit so the English word "order" is never matched as an
+# ID (that produced mass false positives against real args like "ORD-1005").
 _ORDER_ID_PATTERNS = (
-    re.compile(r"\b(ord[_-]?[a-z0-9]+)\b", re.IGNORECASE),
-    re.compile(r"\border\s+#?\s*([a-z0-9]+)\b", re.IGNORECASE),
+    re.compile(r"\b(ord[_-]?\d[a-z0-9_-]*)\b", re.IGNORECASE),
+    re.compile(r"\border\s+#?\s*([a-z]{0,4}[_-]?\d[a-z0-9_-]*)\b", re.IGNORECASE),
 )
 
 
