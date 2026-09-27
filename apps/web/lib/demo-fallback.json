@@ -1,0 +1,60 @@
+{
+  "source": "mock",
+  "note": "Pre-integration snapshot. Replace with a real run snapshot at integration (3:00).",
+  "summary": {
+    "sessions_analyzed": 300,
+    "candidate_sessions": 84,
+    "failure_events": 168,
+    "clusters": 5,
+    "noise_failures": 9
+  },
+  "top_cluster": {
+    "id": "11111111-1111-4111-8111-111111111111",
+    "title": "Duplicate refunds after retry",
+    "priority_label": "P0",
+    "priority_score": 91,
+    "occurrence_count": 32,
+    "affected_sessions": 28,
+    "confidence_score": 97
+  },
+  "representative_session": {
+    "external_session_id": "s-182",
+    "agent_version": "v3",
+    "events": [
+      {
+        "sequence_no": 1,
+        "event_type": "USER_MESSAGE",
+        "content": "Refund 10 dollars for my late order"
+      },
+      {
+        "sequence_no": 2,
+        "event_type": "TOOL_CALL",
+        "tool_name": "refund_order",
+        "payload": {
+          "order_id": "ord-9921",
+          "amount": 100
+        }
+      },
+      {
+        "sequence_no": 3,
+        "event_type": "TOOL_RESULT",
+        "tool_name": "refund_order",
+        "payload": {
+          "status": "success"
+        },
+        "status": "success"
+      },
+      {
+        "sequence_no": 4,
+        "event_type": "ASSISTANT_FINAL",
+        "content": "Your 10 dollar refund was completed."
+      }
+    ],
+    "failure": {
+      "failure_type": "WRONG_PARAMETER",
+      "expected": 10,
+      "observed": 100,
+      "evidence_tier": 2
+    }
+  }
+}

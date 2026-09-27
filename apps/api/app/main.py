@@ -5,6 +5,9 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.runs import router as runs_router
+from app.core.supabase import ping
+
 app = FastAPI(title="Undercover API", version="0.1.0")
 
 # CORS origins for the deployed/local frontend (doc/10_DEPLOYMENT.md).
@@ -22,7 +25,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(runs_router)
+
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "database": "not-configured", "version": "0.1.0"}
+    try:
+        ping()
+        database = "ok"
+    except Exception:
+        database = "degraded"
+    return {"status": "ok", "database": database, "version": "0.1.0"}
