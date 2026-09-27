@@ -17,3 +17,5 @@ supabase/.temp/
 data/demo/*.json
 data/demo/*.jsonl
 !data/demo/.gitkeep
+!data/demo/demo.jsonl
+!data/demo/ground_truth.json

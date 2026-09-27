@@ -5,6 +5,9 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.datasets import router as datasets_router
+from app.api.sessions import router as sessions_router
+
 app = FastAPI(title="Undercover API", version="0.1.0")
 
 # CORS origins for the deployed/local frontend (doc/10_DEPLOYMENT.md).
@@ -21,6 +24,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(datasets_router)
+app.include_router(sessions_router)
 
 
 @app.get("/health")
