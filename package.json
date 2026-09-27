@@ -1,0 +1,15 @@
+{
+  "name": "undercover",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Undercover — Hidden Failures Intelligence MVP (Next.js + FastAPI + Supabase)",
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace apps/web",
+    "build:web": "npm run build --workspace apps/web",
+    "dev:api": "uvicorn app.main:app --reload --app-dir apps/api",
+    "install:all": "npm install && pip install -r apps/api/requirements.txt"
+  }
+}
