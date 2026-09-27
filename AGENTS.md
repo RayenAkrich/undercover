@@ -9,7 +9,7 @@ This repo is a small monorepo for Undercover, a Next.js + FastAPI + Supabase MVP
 - `apps/api/tests/` is reserved for backend tests.
 - `supabase/migrations/001_init.sql` is the canonical database schema.
 - `doc/` holds product, architecture, deployment, RLS, and API reference docs. Check these before changing behavior.
-- `design-prompts/`, `design-templates/`, and `data/demo/` hold design and demo assets.
+- `design-prompts/`, `design-templates/`, `team/`, and `data/demo/` hold planning, design, and demo assets.
 
 ## Build, Test, and Development Commands
 
@@ -20,6 +20,8 @@ This repo is a small monorepo for Undercover, a Next.js + FastAPI + Supabase MVP
 - `npm run lint --workspace apps/web` runs Next linting.
 - `npm run typecheck --workspace apps/web` runs TypeScript checks.
 - `docker compose up --build` runs the web and API containers together.
+
+Copy `apps/web/.env.example` and `apps/api/.env.example` before running services that need Supabase or provider keys.
 
 ## Coding Style & Naming Conventions
 
