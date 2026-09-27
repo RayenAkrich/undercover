@@ -5,6 +5,8 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api import failures
+
 app = FastAPI(title="Undercover API", version="0.1.0")
 
 # CORS origins for the deployed/local frontend (doc/10_DEPLOYMENT.md).
@@ -21,6 +23,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# Slice 2 (Deliverable 3): failures endpoints under the /api/v1 base (doc/08).
+app.include_router(failures.router, prefix="/api/v1")
 
 
 @app.get("/health")
