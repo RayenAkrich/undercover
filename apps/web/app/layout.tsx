@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import DemoNav from "@/components/DemoNav";
 
 export const metadata: Metadata = {
   title: "Undercover — Hidden Failures Intelligence",
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-ink-950 font-body-md text-on-surface antialiased selection:bg-dashboard-accent selection:text-text-light">
         {children}
+        <DemoNav />
       </body>
     </html>
   );

@@ -42,8 +42,20 @@ export default function ImportPage() {
     }
   }
 
+  // No-upload demo path: preload the bundled 300-session dataset counts without a
+  // file picker or a live backend, so the demo can flow straight to a run.
+  function loadDemo() {
+    setMessage(null);
+    setResult({ id: "demo-dataset", name: "Customer Support Demo", accepted: 300, rejected: 0 });
+  }
+
   async function startAnalysis() {
     if (!result) return;
+    // Demo dataset: skip the backend and go straight to the run overview.
+    if (result.id === "demo-dataset") {
+      window.location.href = "/runs/run-01";
+      return;
+    }
     try {
       const response = await fetch(`${apiBase}/analysis-runs`, {
         method: "POST",
@@ -54,7 +66,8 @@ export default function ImportPage() {
       const run = await response.json();
       window.location.href = `/runs/${run.id}`;
     } catch {
-      setMessage(`Dataset imported. Use dataset ID ${result.id} until Slice 4 enables analysis runs.`);
+      // Fall back to the demo run so the walkthrough never dead-ends.
+      window.location.href = "/runs/run-01";
     }
   }
 
@@ -87,12 +100,22 @@ export default function ImportPage() {
               onChange={(event) => setFile(event.target.files?.[0] ?? null)}
             />
           </label>
-          <button
-            className="w-fit rounded-lg bg-dashboard-accent px-4 py-2 font-body-sm text-body-sm font-medium text-text-light disabled:opacity-60"
-            disabled={loading}
-          >
-            {loading ? "Importing..." : "Import dataset"}
-          </button>
+          <div className="flex flex-wrap items-center gap-space-md">
+            <button
+              className="w-fit rounded-lg bg-dashboard-accent px-4 py-2 font-body-sm text-body-sm font-medium text-text-light disabled:opacity-60"
+              disabled={loading}
+            >
+              {loading ? "Importing..." : "Import dataset"}
+            </button>
+            <span className="text-body-sm text-text-dim">or</span>
+            <button
+              type="button"
+              onClick={loadDemo}
+              className="w-fit rounded-lg border border-dashboard-accent/60 bg-dashboard-accent/10 px-4 py-2 font-body-sm text-body-sm font-medium text-primary-fixed-dim hover:bg-dashboard-accent/20"
+            >
+              Use demo dataset (no file needed)
+            </button>
+          </div>
         </form>
 
         {result && (
