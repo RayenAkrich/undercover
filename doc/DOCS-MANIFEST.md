@@ -14,6 +14,7 @@ This folder contains the AI-ready product and technical specification for the **
 | `07_PRODUCT_BACKLOG.md` | Implementation-ready epics/user stories |
 | `08_OPENAPI.md` | HTTP contract between dashboard and analysis service |
 | `09_AI_PROMPTS.md` | Judge/labeling prompts and AI operating rules |
+| `10_DEPLOYMENT.md` | Free deploy setup (Vercel + Render + Supabase), env vars and go-live checklist |
 | `12-UI-UX-DESIGN-SYSTEM.md` | Jury-ready UI/UX specification |
 
 ## Canonical Ownership

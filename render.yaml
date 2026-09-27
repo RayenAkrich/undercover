@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: undercover-api
+    runtime: python
+    rootDir: apps/api
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: SUPABASE_URL
+        sync: false # set in Render dashboard (server-only)
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false # set in Render dashboard (server-only, never NEXT_PUBLIC_)
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: JUDGE_MODEL
+        value: configured-model
+      - key: FRONTEND_URL
+        sync: false # your Vercel URL, e.g. https://undercover.vercel.app

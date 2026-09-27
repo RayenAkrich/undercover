@@ -19,7 +19,7 @@ Own the two pages the jury stares at (Inbox + Benchmark), the run orchestration 
 
 ## Deliverable 1 — App shell + Issue Inbox (your pages, nobody else touches them)
 - `apps/web/app/layout.tsx` nav: Logo `Undercover` | Issue Inbox | Runs | Benchmark | Import (+ `globals.css` tokens from `doc/12`: bg `#F8FAFC`, accent `#2563EB`, P0 `#B91C1C`/P1 `#EA580C`/P2 `#CA8A04`/P3 `#475569`).
-- `apps/web/app/page.tsx` — Issue Inbox: header metrics row (`N Sessions | M Failures | K Patterns | R% rate`), cluster cards sorted by priority (`[P0] title, occurrences · sessions · confidence, impact line, Inspect evidence →`).
+- `apps/web/app/inbox/page.tsx` — Issue Inbox (moved here: `/` is now the Stitch landing page, see `landing/`): header metrics row (`N Sessions | M Failures | K Patterns | R% rate`), cluster cards sorted by priority (`[P0] title, occurrences · sessions · confidence, impact line, Inspect evidence →`).
 - `ClusterCard`, `PriorityBadge` components in YOUR `apps/web/components/` subfolder (`components/inbox/`) — never in the shared root where Slices 2–3 put theirs.
 - Run overview numbers come from `GET /analysis-runs/{runId}/summary`.
 
